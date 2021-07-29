@@ -11,7 +11,7 @@ interface GetApiResult {
 }
 
 const getApi = async (payload: GetApiPayload): Promise<GetApiResult> => {
-  const { data } = (await axios.patch(URL, payload)) as any;
+  const { data } = (await axios.post(URL, payload)) as any;
 
   return data;
 };
