@@ -10,6 +10,7 @@ import {
 import { Form, Field } from "react-final-form";
 import getApi from "../../api/api";
 import Result from "../../components/result/Result";
+import Explanation from "../../components/explanation/Explanation";
 
 interface FormProps {
   arrayContent: string;
@@ -76,9 +77,9 @@ const MainPage: FC = () => {
       <Grid item xs={12}>
         <Box marginBottom={4}>
           <Box marginBottom={4}>
-            <Typography variant="h6">
+            <Typography variant="h5">
               With this amazing tool you can check out if an array has an
-              equilibrium point. Try it now!
+              equilibrium index. Try it now!
             </Typography>
           </Box>
           <Form<FormProps>
@@ -126,6 +127,7 @@ const MainPage: FC = () => {
         <Box display="flex" justifyContent="center">
           <Result result={result} error={error} />
         </Box>
+        <Explanation />
       </Grid>
     </Grid>
   );
