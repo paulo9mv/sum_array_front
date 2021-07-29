@@ -11,6 +11,7 @@ import {
 import Alert from "@material-ui/lab/Alert";
 import { Form, Field } from "react-final-form";
 import getApi from "../../api/api";
+import Result from "../../components/result/Result";
 
 interface FormProps {
   arrayContent: string;
@@ -34,8 +35,6 @@ const MainPage: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [result, setResult] = useState<number>();
   const [error, setError] = useState<string>("");
-
-  console.log("reuslt, re", result);
 
   const handleSubmit = async (values: FormProps) => {
     setLoading(true);
@@ -68,7 +67,6 @@ const MainPage: FC = () => {
         errors.arrayContent = "Please, insert only numbers";
       }
     } catch (e) {
-      console.error(e);
       errors.arrayContent = "Please, insert an valid array.";
     } finally {
       return errors;
@@ -117,22 +115,7 @@ const MainPage: FC = () => {
           }}
         />
       </Box>
-      {result === -1 ? (
-        <Alert severity="info">
-          Your array doesn't have an equilibrium point
-        </Alert>
-      ) : result ? (
-        <Alert severity="success">
-          The equilibrium point is at position <strong>{result}</strong>
-        </Alert>
-      ) : null}
-      {error && (
-        <Alert severity="error">
-          Oops! Something wrong happened.
-          <br />
-          Error status: {error}
-        </Alert>
-      )}
+      <Result result={result} error={error} />
     </Grid>
   );
 };

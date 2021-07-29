@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Box } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   topbar: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
 const TopBar: FC = () => {
   const classes = useStyles();
 
-  return <div className={classes.topbar}>Array Equilibrium Algorithm</div>;
+  return <Box className={classes.topbar}>Array Equilibrium Algorithm</Box>;
 };
 
 export default TopBar;
