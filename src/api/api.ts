@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://127.0.0.1:5000/equilibrium";
+const URL = "https://sumarray.herokuapp.com/equilibrium";
 
 interface GetApiPayload {
   arr: Array<number>;
