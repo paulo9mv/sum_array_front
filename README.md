@@ -15,7 +15,7 @@ $ yarn install
 $ yarn start
 ```
 
-**NOTE:** The frontend is hosted at Github Pages. The API is hosted at Heroku using Free Dynos, so the first request should take a little bit longer (4s) to execute, because the API will be changing from **suspended** to **up**.
+**NOTE:** The frontend is hosted at Github Pages. The API is hosted at Heroku using Free Dynos, so the first request should take a little bit longer (8s) to execute, because Heroku is changing the API status from **suspended** to **up**.
 
 
 ## Tools used in the project :paperclip:
