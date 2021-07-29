@@ -5,7 +5,7 @@ const Explanation: FC = () => {
   return (
     <Box marginTop={4}>
       <Typography variant="h2">How is it done?</Typography>
-      <Typography>First, we sum all the elements on the array</Typography>
+      <Typography>First, we sum all the elements of the array</Typography>
       <Typography>Secondly, we start an paralel sum starting at 0</Typography>
       <Typography>
         Now, starting from the beginning, we iterate each element of the array
@@ -20,8 +20,8 @@ const Explanation: FC = () => {
       </Typography>
       <Typography>
         Otherwise, we add the element to the paralel sum and iterate to the next
-        element, until an index is found. If the array is over, there's no
-        equilibrium index.
+        element, until an index is found. The total sum will decrease in each
+        iteration. If the array is over, there's no equilibrium index.
       </Typography>
     </Box>
   );
