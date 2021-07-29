@@ -16,7 +16,7 @@ const Explanation: FC = () => {
       <Box marginBottom={2}>
         <Typography variant="h2">How is it done?</Typography>
       </Box>
-      <Alert icon={false} severity="info">
+      <Alert icon={false} severity="info" style={{ justifyContent: "center" }}>
         <Typography>First, we sum all the elements of the array</Typography>
         <Typography>Secondly, we start an paralel sum starting at 0</Typography>
         <Typography>
