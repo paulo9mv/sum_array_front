@@ -21,7 +21,7 @@ const Result: FC<Props> = ({ error, result }) => {
     }
 
     if (result === -1) {
-      return "info";
+      return "warning";
     } else if (result || result === 0) {
       return "success";
     }
