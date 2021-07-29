@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import MainPage from "./screens/mainPage/MainPage";
 import TopBar from "./components/topbar/Topbar";
-import FooterMenu from "./components/footer/FooterMenu";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <header className="App-header">
         <TopBar />
         <MainPage />
-        <FooterMenu />
+        <Footer />
       </header>
     </div>
   );
