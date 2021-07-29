@@ -18,12 +18,10 @@ interface FormProps {
 
 const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
-
+    flex: 1,
     alignSelf: "center",
-  },
-  marginBox: {
-    marginBottom: 8,
+    marginTop: 64,
+    marginBottom: 64,
   },
   wrapper: {
     justifyContent: "center",
@@ -44,6 +42,7 @@ const MainPage: FC = () => {
       const response = await getApi({ arr });
 
       setResult(response.index);
+      setError("");
     } catch (error) {
       const errorMessage: string =
         error?.response?.data?.error || "An unexpected error happened";
@@ -73,7 +72,7 @@ const MainPage: FC = () => {
   };
 
   return (
-    <Grid container className={classes.root} spacing={8}>
+    <Grid container className={classes.root}>
       <Grid item xs={12}>
         <Box marginBottom={4}>
           <Box marginBottom={4}>
@@ -102,6 +101,7 @@ const MainPage: FC = () => {
                             meta.error && meta.touched ? meta.error : null
                           }
                           multiline
+                          placeholder="[1,2,3,4,6]"
                           rows={4}
                           size="medium"
                           variant="outlined"

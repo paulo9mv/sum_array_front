@@ -34,9 +34,9 @@ const Result: FC<Props> = ({ error, result }) => {
     }
 
     if (result === -1) {
-      return "Your array doesn't have an equilibrium point";
+      return "Your array doesn't have an equilibrium index";
     } else if (result || result === 0) {
-      return `The equilibrium point is at position ${result}`;
+      return `The equilibrium index is at position ${result}`;
     }
   };
 
