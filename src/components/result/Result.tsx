@@ -19,8 +19,6 @@ const Result: FC<Props> = ({ error, result }) => {
     }
   };
 
-  console.log(error, result);
-
   const getAlertMessage = () => {
     if (error) {
       return `Oops! Something wrong happened.

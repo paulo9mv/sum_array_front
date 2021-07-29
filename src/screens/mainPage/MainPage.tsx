@@ -8,7 +8,6 @@ import {
   makeStyles,
   CircularProgress,
 } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
 import { Form, Field } from "react-final-form";
 import getApi from "../../api/api";
 import Result from "../../components/result/Result";
@@ -22,13 +21,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     marginTop: 50,
   },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
 }));
 
 const MainPage: FC = () => {
@@ -41,8 +33,6 @@ const MainPage: FC = () => {
     try {
       const arr = JSON.parse(values.arrayContent);
       const response = await getApi({ arr });
-
-      console.log(response);
 
       setResult(response.index);
     } catch (error) {
