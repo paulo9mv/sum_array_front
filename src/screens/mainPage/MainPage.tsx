@@ -6,7 +6,6 @@ import {
   Button,
   Typography,
   makeStyles,
-  CircularProgress,
 } from "@material-ui/core";
 import { Form, Field } from "react-final-form";
 import getApi from "../../api/api";
@@ -16,10 +15,19 @@ interface FormProps {
   arrayContent: string;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    marginTop: 50,
+
+    alignSelf: "center",
+  },
+  marginBox: {
+    marginBottom: 8,
+  },
+  wrapper: {
+    justifyContent: "center",
+    margin: 1,
+    position: "relative",
   },
 }));
 
@@ -64,48 +72,61 @@ const MainPage: FC = () => {
   };
 
   return (
-    <Grid container className={classes.root}>
-      <Box>
-        <Typography>
-          With this amazing tool you can check out if an array has an
-          equilibrium point. Try it now!
-        </Typography>
-        <Form<FormProps>
-          validate={validateForm}
-          validateOnBlur
-          onSubmit={handleSubmit}
-          render={({ handleSubmit, form }) => {
-            return (
-              <form onSubmit={handleSubmit}>
-                <Field
-                  name="arrayContent"
-                  render={({ input, meta }) => (
-                    <TextField
-                      {...input}
-                      label="Array"
-                      disabled={loading}
-                      error={meta.error && meta.touched}
-                      helperText={
-                        meta.error && meta.touched ? meta.error : null
-                      }
-                      multiline
-                      rows={4}
-                      size="medium"
-                      variant="outlined"
+    <Grid container className={classes.root} spacing={8}>
+      <Grid item xs={12}>
+        <Box marginBottom={4}>
+          <Box marginBottom={4}>
+            <Typography variant="h6">
+              With this amazing tool you can check out if an array has an
+              equilibrium point. Try it now!
+            </Typography>
+          </Box>
+          <Form<FormProps>
+            validate={validateForm}
+            validateOnBlur
+            onSubmit={handleSubmit}
+            render={({ handleSubmit, form }) => {
+              return (
+                <form onSubmit={handleSubmit}>
+                  <Box marginBottom={4}>
+                    <Field
+                      name="arrayContent"
+                      render={({ input, meta }) => (
+                        <TextField
+                          {...input}
+                          label="Array"
+                          disabled={loading}
+                          error={meta.error && meta.touched}
+                          helperText={
+                            meta.error && meta.touched ? meta.error : null
+                          }
+                          multiline
+                          rows={4}
+                          size="medium"
+                          variant="outlined"
+                        />
+                      )}
                     />
-                  )}
-                />
-
-                <Button disabled={loading} onClick={form.submit}>
-                  Submit
-                </Button>
-                {loading && <CircularProgress />}
-              </form>
-            );
-          }}
-        />
-      </Box>
-      <Result result={result} error={error} />
+                  </Box>
+                  <Box className={classes.wrapper}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      disabled={loading}
+                      onClick={form.submit}
+                    >
+                      {loading ? "Loading" : "Try it"}
+                    </Button>
+                  </Box>
+                </form>
+              );
+            }}
+          />
+        </Box>
+        <Box display="flex" justifyContent="center">
+          <Result result={result} error={error} />
+        </Box>
+      </Grid>
     </Grid>
   );
 };

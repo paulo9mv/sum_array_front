@@ -1,12 +1,20 @@
 import React, { FC } from "react";
 import Alert from "@material-ui/lab/Alert";
-
+import { makeStyles } from "@material-ui/core";
 interface Props {
   error: string;
   result: number | undefined;
 }
 
+const useStyles = makeStyles(() => ({
+  container: {
+    maxWidth: 400,
+  },
+}));
+
 const Result: FC<Props> = ({ error, result }) => {
+  const classes = useStyles();
+
   const getAlertStatus = () => {
     if (error) {
       return "error";
@@ -33,7 +41,9 @@ const Result: FC<Props> = ({ error, result }) => {
   };
 
   return error || result || result === 0 ? (
-    <Alert severity={getAlertStatus()}>{getAlertMessage()}</Alert>
+    <Alert className={classes.container} severity={getAlertStatus()}>
+      {getAlertMessage()}
+    </Alert>
   ) : null;
 };
 

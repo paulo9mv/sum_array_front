@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     width: "100%",
     height: 40,
+    opacity: 1,
     backgroundColor: "antiquewhite",
     border: "1px solid rgba(0, 0, 0, 1)",
     fontWeight: "bold",
